@@ -42,9 +42,6 @@ class SerializerBuilder
 
     private ?CacheInterface $psr16Cache = null;
 
-    /**
-     * @phpstan-ignore property.onlyWritten
-     */
     private ?SecurityConfig $securityConfig = null;
 
     // Deserializer-specific settings
@@ -228,7 +225,8 @@ class SerializerBuilder
             defaultStrictTypes: $this->strictTypes,
             defaultVersion: $this->version,
             defaultAllowExtraProperties: $this->allowExtraProperties,
-            defaultTypeCoercionMode: $this->typeCoercionMode
+            defaultTypeCoercionMode: $this->typeCoercionMode,
+            defaultSecurityConfig: $this->securityConfig
         );
     }
 

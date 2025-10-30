@@ -99,8 +99,7 @@ describe('Deserialization Integration Tests', function () {
                 public string $name = '',
                 public int $age = 0,
                 public string $email = ''
-            ) {
-            }
+            ) {}
         }
 
         $original = new RoundTripUser('John Doe', 30, 'john@example.com');
@@ -314,7 +313,7 @@ describe('Deserialization Integration Tests', function () {
         {
             public string|int $id;
 
-            public string|null $description;
+            public ?string $description;
         }
 
         // Test with string id

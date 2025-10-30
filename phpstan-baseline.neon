@@ -11,27 +11,3 @@ parameters:
 			identifier: property.unusedType
 			count: 1
 			path: src/Builder/SerializerBuilder.php
-
-		-
-			message: '#^Property Farzai\\JsonSerializer\\Engine\\SerializationContext\:\:\$strictTypes is never read, only written\.$#'
-			identifier: property.onlyWritten
-			count: 1
-			path: src/Engine/SerializationContext.php
-
-		-
-			message: '#^Instantiated class Farzai\\JsonSerializer\\Stream\\StreamException not found\.$#'
-			identifier: class.notFound
-			count: 6
-			path: src/Stream/FileStream.php
-
-		-
-			message: '#^PHPDoc tag @throws with type Farzai\\JsonSerializer\\Stream\\StreamException is not subtype of Throwable$#'
-			identifier: throws.notThrowable
-			count: 3
-			path: src/Stream/FileStream.php
-
-		-
-			message: '#^Throwing object of an unknown class Farzai\\JsonSerializer\\Stream\\StreamException\.$#'
-			identifier: class.notFound
-			count: 6
-			path: src/Stream/FileStream.php

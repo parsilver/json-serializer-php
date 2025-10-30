@@ -13,9 +13,9 @@ it('can serialize nested arrays', function () {
     $data = [
         'user' => [
             'name' => 'John',
-            'email' => 'john@example.com'
+            'email' => 'john@example.com',
         ],
-        'active' => true
+        'active' => true,
     ];
 
     $json = JsonSerializer::encode($data);
@@ -49,7 +49,7 @@ it('can serialize sequential arrays', function () {
 });
 
 it('can serialize objects', function () {
-    $obj = new stdClass();
+    $obj = new stdClass;
     $obj->name = 'Jane';
     $obj->age = 25;
 

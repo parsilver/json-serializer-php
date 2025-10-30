@@ -156,4 +156,12 @@ class SerializationContext
     {
         return $this->version;
     }
+
+    /**
+     * Check if strict type checking is enabled.
+     */
+    public function isStrictTypes(): bool
+    {
+        return $this->strictTypes;
+    }
 }

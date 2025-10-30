@@ -266,6 +266,7 @@ class LazyJsonIterator implements Iterator
         foreach ($this as $key => $value) {
             if ($skipped < $count) {
                 $skipped++;
+
                 continue;
             }
             yield $key => $value;

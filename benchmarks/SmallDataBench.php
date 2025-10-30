@@ -13,15 +13,18 @@ use Farzai\JsonSerializer\JsonSerializer;
 class SmallDataBench
 {
     private array $smallData;
+
     private string $smallJson;
+
     private SimpleClass $simpleObject;
+
     private NestedClass $nestedObject;
 
     public function __construct()
     {
         // Load small fixture
         $this->smallData = json_decode(
-            file_get_contents(__DIR__ . '/fixtures/small.json'),
+            file_get_contents(__DIR__.'/fixtures/small.json'),
             true
         );
         $this->smallJson = json_encode($this->smallData);
@@ -137,8 +140,7 @@ class SimpleClass
         public string $name,
         public string $email,
         public int $age
-    ) {
-    }
+    ) {}
 }
 
 class AuthorClass
@@ -147,8 +149,7 @@ class AuthorClass
         public int $id,
         public string $name,
         public string $email
-    ) {
-    }
+    ) {}
 }
 
 class NestedClass
@@ -158,6 +159,5 @@ class NestedClass
         public string $title,
         public AuthorClass $author,
         public array $tags
-    ) {
-    }
+    ) {}
 }

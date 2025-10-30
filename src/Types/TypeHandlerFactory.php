@@ -6,6 +6,7 @@ namespace Farzai\JsonSerializer\Types;
 
 use Farzai\JsonSerializer\Types\Handlers\ArrayTypeHandler;
 use Farzai\JsonSerializer\Types\Handlers\EnumTypeHandler;
+use Farzai\JsonSerializer\Types\Handlers\GeneratorTypeHandler;
 use Farzai\JsonSerializer\Types\Handlers\ObjectTypeHandler;
 use Farzai\JsonSerializer\Types\Handlers\ScalarTypeHandler;
 
@@ -40,6 +41,7 @@ class TypeHandlerFactory
         // Register in order of specificity/priority
         $registry->register(new ScalarTypeHandler);
         $registry->register(new EnumTypeHandler);
+        $registry->register(new GeneratorTypeHandler); // Priority 60 - check before arrays
         $registry->register(new ArrayTypeHandler);
         $registry->register(new ObjectTypeHandler);
     }

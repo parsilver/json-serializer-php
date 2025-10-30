@@ -14,25 +14,30 @@ use Farzai\JsonSerializer\JsonSerializer;
 class MediumDataBench
 {
     private array $data1mb;
+
     private array $data5mb;
+
     private array $data10mb;
+
     private string $json1mb;
+
     private string $json5mb;
+
     private string $json10mb;
 
     public function __construct()
     {
         // Load medium fixtures
         $this->data1mb = json_decode(
-            file_get_contents(__DIR__ . '/fixtures/medium-1mb.json'),
+            file_get_contents(__DIR__.'/fixtures/medium-1mb.json'),
             true
         );
         $this->data5mb = json_decode(
-            file_get_contents(__DIR__ . '/fixtures/medium-5mb.json'),
+            file_get_contents(__DIR__.'/fixtures/medium-5mb.json'),
             true
         );
         $this->data10mb = json_decode(
-            file_get_contents(__DIR__ . '/fixtures/medium-10mb.json'),
+            file_get_contents(__DIR__.'/fixtures/medium-10mb.json'),
             true
         );
 
@@ -148,6 +153,7 @@ class MediumDataBench
 
     /**
      * @Groups({"5mb", "decode-class", "serializer"})
+     *
      * @Revs(5)
      */
     public function benchJsonSerializerDecodeToClass5MB(): void
@@ -160,22 +166,35 @@ class MediumDataBench
 class UserDTO
 {
     public int $id;
+
     public string $name;
+
     public string $email;
+
     public int $age;
+
     public bool $isActive;
+
     public float $balance;
+
     public string $registeredAt;
+
     public AddressDTO $address;
+
     public array $tags;
+
     public array $metadata;
 }
 
 class AddressDTO
 {
     public string $street;
+
     public string $city;
+
     public string $state;
+
     public string $zipCode;
+
     public string $country;
 }

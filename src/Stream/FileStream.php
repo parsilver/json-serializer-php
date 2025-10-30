@@ -6,7 +6,7 @@ namespace Farzai\JsonSerializer\Stream;
 
 use Farzai\JsonSerializer\Contracts\StreamInterface;
 use Farzai\JsonSerializer\Contracts\StreamWriterInterface;
-use Farzai\JsonSerializer\Exceptions\StreamExceptionfinal ;
+use Farzai\JsonSerializer\Exceptions\StreamException;
 
 /**
  * File-based stream implementation.

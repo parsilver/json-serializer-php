@@ -17,6 +17,7 @@ composer require farzai/json-serializer
 ## Features
 
 - **High Performance** - Optimized for speed and memory efficiency
+- **Generator Support** - Memory-efficient serialization of large datasets using PHP generators
 - **Type-Safe** - Full PHP 8.1+ type system support including union types
 - **Nested Objects** - Automatic recursive serialization/deserialization
 - **Collections** - `array<Type>` notation for typed collections
@@ -630,6 +631,71 @@ foreach ($iterator->take(1000) as $item) {
 
 echo "Average: " . ($sum / $count);
 ```
+
+### Generator Serialization
+
+Serialize large datasets memory-efficiently using PHP generators:
+
+```php
+use Farzai\JsonSerializer\JsonSerializer;
+
+// Simple generator - sequential array
+function getUsers(): Generator {
+    for ($i = 1; $i <= 1000; $i++) {
+        yield ['id' => $i, 'name' => "User {$i}"];
+    }
+}
+
+$json = JsonSerializer::encode(getUsers());
+// [{"id":1,"name":"User 1"},{"id":2,"name":"User 2"},...]
+
+// Generator yielding objects
+function getUserObjects(): Generator {
+    for ($i = 1; $i <= 1000; $i++) {
+        yield new User(id: $i, name: "User {$i}");
+    }
+}
+
+$json = JsonSerializer::encode(getUserObjects());
+
+// Associative generator - JSON object
+function getConfig(): Generator {
+    yield 'app_name' => 'MyApp';
+    yield 'version' => '1.0.0';
+    yield 'debug' => false;
+}
+
+$json = JsonSerializer::encode(getConfig());
+// {"app_name":"MyApp","version":"1.0.0","debug":false}
+
+// Nested generators
+function getCategories(): Generator {
+    yield 'electronics' => getProducts('electronics');
+    yield 'books' => getProducts('books');
+}
+
+function getProducts(string $category): Generator {
+    // Fetch products from database one at a time
+    foreach ($db->query("SELECT * FROM products WHERE category = ?", [$category]) as $row) {
+        yield $row;
+    }
+}
+
+// Serialize nested generators without loading all data into memory
+$json = JsonSerializer::encode(getCategories());
+```
+
+**Benefits of Generator Serialization:**
+- **Constant Memory Usage**: Only one item in memory at a time
+- **Database Streaming**: Fetch and serialize rows without buffering
+- **Lazy Evaluation**: Generate data on-demand during serialization
+- **Large Datasets**: Process millions of records without memory issues
+
+**When to Use Generators:**
+- Serializing database query results (1,000+ rows)
+- Processing large CSV files or API responses
+- Building JSON from expensive computations
+- Any scenario where data doesn't fit comfortably in memory
 
 ## Performance
 

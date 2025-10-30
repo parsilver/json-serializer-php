@@ -98,9 +98,7 @@ describe('Polymorphic Deserialization Tests', function () {
                 'credit' => PolyCreditCard::class,
                 'paypal' => PolyPayPal::class,
             ])]
-            interface PolyPayment
-            {
-            }
+            interface PolyPayment {}
 
             class PolyCreditCard implements PolyPayment
             {

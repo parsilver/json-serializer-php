@@ -37,8 +37,7 @@ class PropertyMetadata
         public readonly ?string $untilVersion = null,
         public readonly bool $isVirtual = false,
         public readonly ?string $virtualMethod = null,
-    ) {
-    }
+    ) {}
 
     /**
      * Check if this property should be serialized for a given version.

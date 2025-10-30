@@ -15,27 +15,30 @@ use Farzai\JsonSerializer\JsonSerializer;
 class MemoryBench
 {
     private array $dataSmall;
+
     private array $data1mb;
+
     private array $data5mb;
+
     private array $data10mb;
 
     public function __construct()
     {
         // Load fixtures
         $this->dataSmall = json_decode(
-            file_get_contents(__DIR__ . '/fixtures/small.json'),
+            file_get_contents(__DIR__.'/fixtures/small.json'),
             true
         );
         $this->data1mb = json_decode(
-            file_get_contents(__DIR__ . '/fixtures/medium-1mb.json'),
+            file_get_contents(__DIR__.'/fixtures/medium-1mb.json'),
             true
         );
         $this->data5mb = json_decode(
-            file_get_contents(__DIR__ . '/fixtures/medium-5mb.json'),
+            file_get_contents(__DIR__.'/fixtures/medium-5mb.json'),
             true
         );
         $this->data10mb = json_decode(
-            file_get_contents(__DIR__ . '/fixtures/medium-10mb.json'),
+            file_get_contents(__DIR__.'/fixtures/medium-10mb.json'),
             true
         );
     }
@@ -87,6 +90,7 @@ class MemoryBench
 
     /**
      * @Groups({"memory", "5mb", "native"})
+     *
      * @Revs(3)
      */
     public function benchMemoryNative5MB(): void
@@ -99,6 +103,7 @@ class MemoryBench
 
     /**
      * @Groups({"memory", "5mb", "serializer"})
+     *
      * @Revs(3)
      */
     public function benchMemorySerializer5MB(): void
@@ -111,6 +116,7 @@ class MemoryBench
 
     /**
      * @Groups({"memory", "10mb", "native"})
+     *
      * @Revs(2)
      */
     public function benchMemoryNative10MB(): void
@@ -123,6 +129,7 @@ class MemoryBench
 
     /**
      * @Groups({"memory", "10mb", "serializer"})
+     *
      * @Revs(2)
      */
     public function benchMemorySerializer10MB(): void
@@ -150,7 +157,7 @@ class MemoryBench
      */
     public function benchMemoryStreamingEncode(): void
     {
-        $tempFile = sys_get_temp_dir() . '/bench-memory-stream.json';
+        $tempFile = sys_get_temp_dir().'/bench-memory-stream.json';
         $peakBefore = memory_get_peak_usage();
         JsonSerializer::encodeToFile($this->data10mb, $tempFile);
         $peakAfter = memory_get_peak_usage();

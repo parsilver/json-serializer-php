@@ -12,22 +12,29 @@ use Farzai\JsonSerializer\JsonSerializer;
  * Tests streaming capabilities and memory efficiency.
  *
  * @Revs(1)
+ *
  * @Iterations(2)
+ *
  * @Warmup(1)
  */
 class LargeDataBench
 {
     private array $data50mb;
+
     private array $data100mb;
+
     private string $json50mb;
+
     private string $json100mb;
+
     private string $fixture50mbPath;
+
     private string $fixture100mbPath;
 
     public function __construct()
     {
-        $this->fixture50mbPath = __DIR__ . '/fixtures/large-50mb.json';
-        $this->fixture100mbPath = __DIR__ . '/fixtures/large-100mb.json';
+        $this->fixture50mbPath = __DIR__.'/fixtures/large-50mb.json';
+        $this->fixture100mbPath = __DIR__.'/fixtures/large-100mb.json';
 
         // Load large fixtures
         $this->data50mb = json_decode(
@@ -113,7 +120,7 @@ class LargeDataBench
      */
     public function benchJsonSerializerStreamEncode50MB(): void
     {
-        $tempFile = sys_get_temp_dir() . '/bench-50mb.json';
+        $tempFile = sys_get_temp_dir().'/bench-50mb.json';
         JsonSerializer::encodeToFile($this->data50mb, $tempFile);
         if (file_exists($tempFile)) {
             unlink($tempFile);
@@ -125,7 +132,7 @@ class LargeDataBench
      */
     public function benchJsonSerializerStreamEncode100MB(): void
     {
-        $tempFile = sys_get_temp_dir() . '/bench-100mb.json';
+        $tempFile = sys_get_temp_dir().'/bench-100mb.json';
         JsonSerializer::encodeToFile($this->data100mb, $tempFile);
         if (file_exists($tempFile)) {
             unlink($tempFile);

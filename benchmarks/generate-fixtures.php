@@ -16,16 +16,16 @@ function generateUser(int $id): array
 {
     return [
         'id' => $id,
-        'name' => 'User ' . $id,
-        'email' => 'user' . $id . '@example.com',
+        'name' => 'User '.$id,
+        'email' => 'user'.$id.'@example.com',
         'age' => rand(18, 80),
         'isActive' => (bool) rand(0, 1),
         'balance' => round(rand(0, 100000) / 100, 2),
         'registeredAt' => date('Y-m-d H:i:s', time() - rand(0, 31536000)),
         'address' => [
-            'street' => rand(1, 999) . ' Main St',
-            'city' => 'City ' . rand(1, 100),
-            'state' => chr(65 + rand(0, 25)) . chr(65 + rand(0, 25)),
+            'street' => rand(1, 999).' Main St',
+            'city' => 'City '.rand(1, 100),
+            'state' => chr(65 + rand(0, 25)).chr(65 + rand(0, 25)),
             'zipCode' => str_pad((string) rand(10000, 99999), 5, '0', STR_PAD_LEFT),
             'country' => 'USA',
         ],
@@ -63,13 +63,13 @@ function getApproximateSize(array $data): int
 function writeFixture(string $filename, array $data): void
 {
     $json = json_encode($data, JSON_PRETTY_PRINT);
-    $path = __DIR__ . '/fixtures/' . $filename;
+    $path = __DIR__.'/fixtures/'.$filename;
     file_put_contents($path, $json);
 
     $size = filesize($path);
     $sizeFormatted = $size < 1024 * 1024
-        ? round($size / 1024, 2) . ' KB'
-        : round($size / (1024 * 1024), 2) . ' MB';
+        ? round($size / 1024, 2).' KB'
+        : round($size / (1024 * 1024), 2).' MB';
 
     echo "Generated: {$filename} ({$sizeFormatted})\n";
 }

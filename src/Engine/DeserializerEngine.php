@@ -10,6 +10,7 @@ use Farzai\JsonSerializer\Events\PostDeserializeEvent;
 use Farzai\JsonSerializer\Events\PreDeserializeEvent;
 use Farzai\JsonSerializer\Exceptions\TypeException;
 use Farzai\JsonSerializer\Middleware\DeserializationMiddlewareChain;
+use Farzai\JsonSerializer\Security\SecurityConfig;
 use Farzai\JsonSerializer\Transformers\TransformerRegistry;
 use Farzai\JsonSerializer\Types\TypeCoercionMode;
 
@@ -37,6 +38,7 @@ class DeserializerEngine
      * @param  string|null  $defaultVersion  Default version for deserialization
      * @param  bool  $defaultAllowExtraProperties  Default allow extra properties setting
      * @param  TypeCoercionMode  $defaultTypeCoercionMode  Default type coercion mode
+     * @param  SecurityConfig|null  $defaultSecurityConfig  Default security configuration
      * @param  EventDispatcher|null  $eventDispatcher  Optional event dispatcher for hooks
      * @param  DeserializationMiddlewareChain|null  $middlewareChain  Optional middleware chain
      */
@@ -48,6 +50,7 @@ class DeserializerEngine
         private readonly ?string $defaultVersion = null,
         private readonly bool $defaultAllowExtraProperties = true,
         private readonly TypeCoercionMode $defaultTypeCoercionMode = TypeCoercionMode::SAFE,
+        private readonly ?SecurityConfig $defaultSecurityConfig = null,
         ?EventDispatcher $eventDispatcher = null,
         ?DeserializationMiddlewareChain $middlewareChain = null,
     ) {
@@ -180,7 +183,8 @@ class DeserializerEngine
             strictTypes: $this->defaultStrictTypes,
             version: $this->defaultVersion,
             allowExtraProperties: $this->defaultAllowExtraProperties,
-            typeCoercionMode: $this->defaultTypeCoercionMode
+            typeCoercionMode: $this->defaultTypeCoercionMode,
+            securityConfig: $this->defaultSecurityConfig
         );
     }
 

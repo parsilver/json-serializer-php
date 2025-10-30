@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="6.13.1@1e3b7f0a8ab32b23197b91107adc0a7ed8a05b51">
   <file src="src/Attributes/DateFormat.php">
-    <ClassMustBeFinal>
-      <code><![CDATA[DateFormat]]></code>
-    </ClassMustBeFinal>
-    <MissingClassConstType>
-      <code><![CDATA[ISO8601 = \DateTimeInterface::ATOM]]></code>
-      <code><![CDATA[RFC3339 = \DateTimeInterface::RFC3339]]></code>
-      <code><![CDATA[RFC3339_EXTENDED = \DateTimeInterface::RFC3339_EXTENDED]]></code>
-    </MissingClassConstType>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Attributes/Discriminator.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -19,39 +16,21 @@
     </ClassMustBeFinal>
   </file>
   <file src="src/Attributes/NamingStrategy.php">
-    <ClassMustBeFinal>
-      <code><![CDATA[NamingStrategy]]></code>
-    </ClassMustBeFinal>
-    <MissingClassConstType>
-      <code><![CDATA[CAMEL_CASE = 'camelCase']]></code>
-      <code><![CDATA[KEBAB_CASE = 'kebab-case']]></code>
-      <code><![CDATA[PASCAL_CASE = 'PascalCase']]></code>
-      <code><![CDATA[SNAKE_CASE = 'snake_case']]></code>
-    </MissingClassConstType>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Attributes/SerializedName.php">
-    <ClassMustBeFinal>
-      <code><![CDATA[SerializedName]]></code>
-    </ClassMustBeFinal>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Attributes/Since.php">
-    <ClassMustBeFinal>
-      <code><![CDATA[Since]]></code>
-    </ClassMustBeFinal>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Attributes/Transformer.php">
-    <ClassMustBeFinal>
-      <code><![CDATA[Transformer]]></code>
-    </ClassMustBeFinal>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -65,17 +44,11 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Attributes/Until.php">
-    <ClassMustBeFinal>
-      <code><![CDATA[Until]]></code>
-    </ClassMustBeFinal>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Attributes/VirtualProperty.php">
-    <ClassMustBeFinal>
-      <code><![CDATA[VirtualProperty]]></code>
-    </ClassMustBeFinal>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -101,19 +74,11 @@
       <code><![CDATA[SerializerBuilder]]></code>
     </ClassMustBeFinal>
     <PossiblyUnusedMethod>
-      <code><![CDATA[addTypeHandler]]></code>
-      <code><![CDATA[getDetectCircularReferences]]></code>
-      <code><![CDATA[getMaxDepth]]></code>
-      <code><![CDATA[getPrettyPrint]]></code>
-      <code><![CDATA[getStrictTypes]]></code>
-      <code><![CDATA[getVersion]]></code>
-      <code><![CDATA[prettyPrint]]></code>
-      <code><![CDATA[strict]]></code>
+      <code><![CDATA[buildDeserializer]]></code>
+      <code><![CDATA[withAllowExtraProperties]]></code>
       <code><![CDATA[withCircularReferenceDetection]]></code>
       <code><![CDATA[withMaxDepth]]></code>
-      <code><![CDATA[withMetadataCache]]></code>
-      <code><![CDATA[withPsr16Cache]]></code>
-      <code><![CDATA[withTypeRegistry]]></code>
+      <code><![CDATA[withTypeCoercionMode]]></code>
       <code><![CDATA[withVersion]]></code>
     </PossiblyUnusedMethod>
   </file>
@@ -124,36 +89,39 @@
     <MixedAssignment>
       <code><![CDATA[$cached]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[clear]]></code>
-      <code><![CDATA[clearAll]]></code>
-      <code><![CDATA[has]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/Contracts/NamingStrategyInterface.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getName]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Engine/DeserializationContext.php">
     <ClassMustBeFinal>
       <code><![CDATA[DeserializationContext]]></code>
     </ClassMustBeFinal>
     <PossiblyUnusedMethod>
-      <code><![CDATA[getCurrentDepth]]></code>
-      <code><![CDATA[getMaxDepth]]></code>
+      <code><![CDATA[getSecurityValidator]]></code>
     </PossiblyUnusedMethod>
+    <UnusedProperty>
+      <code><![CDATA[$securityConfig]]></code>
+    </UnusedProperty>
   </file>
   <file src="src/Engine/DeserializerEngine.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$c]]></code>
+      <code><![CDATA[$c]]></code>
+    </ArgumentTypeCoercion>
     <ClassMustBeFinal>
       <code><![CDATA[DeserializerEngine]]></code>
     </ClassMustBeFinal>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$data]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$data]]></code>
     </MixedAssignment>
-    <UnusedVariable>
-      <code><![CDATA[$context]]></code>
-    </UnusedVariable>
+    <MixedReturnStatement>
+      <code><![CDATA[$postEvent->getResult()]]></code>
+    </MixedReturnStatement>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getEventDispatcher]]></code>
+      <code><![CDATA[getMiddlewareChain]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Engine/ObjectHydrator.php">
     <ClassMustBeFinal>
@@ -185,10 +153,39 @@
     <ClassMustBeFinal>
       <code><![CDATA[SerializerEngine]]></code>
     </ClassMustBeFinal>
+    <MissingClosureReturnType>
+      <code><![CDATA[function (mixed $val, SerializationContext $ctx) {]]></code>
+    </MissingClosureReturnType>
+    <MixedAssignment>
+      <code><![CDATA[$val]]></code>
+    </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getEventDispatcher]]></code>
+      <code><![CDATA[getMiddlewareChain]]></code>
+    </PossiblyUnusedMethod>
     <UnusedProperty>
       <code><![CDATA[$metadataCache]]></code>
       <code><![CDATA[$typeRegistry]]></code>
     </UnusedProperty>
+  </file>
+  <file src="src/Engine/StreamingDeserializer.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[StreamingDeserializer]]></code>
+    </ClassMustBeFinal>
+    <MixedAssignment>
+      <code><![CDATA[$result[$key]]]></code>
+      <code><![CDATA[$result[]]]></code>
+      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$value]]></code>
+    </MixedAssignment>
+    <PossiblyNullOperand>
+      <code><![CDATA[$this->currentToken?->name]]></code>
+      <code><![CDATA[$this->currentToken?->name]]></code>
+      <code><![CDATA[$this->currentToken?->name]]></code>
+      <code><![CDATA[$this->currentToken?->name]]></code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Engine/StreamingEncoder.php">
     <ClassMustBeFinal>
@@ -198,6 +195,65 @@
       <code><![CDATA[$metadataCache]]></code>
     </UnusedProperty>
   </file>
+  <file src="src/Events/AbstractEvent.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isPropagationStopped(): bool]]></code>
+      <code><![CDATA[public function stopPropagation(): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Events/Event.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[stopPropagation]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Events/EventDispatcher.php">
+    <MixedArrayAccess>
+      <code><![CDATA[$a['priority']]]></code>
+      <code><![CDATA[$b['priority']]]></code>
+    </MixedArrayAccess>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[addListener]]></code>
+      <code><![CDATA[clearListeners]]></code>
+      <code><![CDATA[getListenerCount]]></code>
+      <code><![CDATA[hasListeners]]></code>
+      <code><![CDATA[removeListeners]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[T]]></code>
+    </PossiblyUnusedReturnValue>
+  </file>
+  <file src="src/Events/PostDeserializeEvent.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getContext]]></code>
+      <code><![CDATA[getOriginalJson]]></code>
+      <code><![CDATA[setResult]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Events/PostSerializeEvent.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getContext]]></code>
+      <code><![CDATA[getOriginalValue]]></code>
+      <code><![CDATA[setJson]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Events/PreDeserializeEvent.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getClassName]]></code>
+      <code><![CDATA[getContext]]></code>
+      <code><![CDATA[setJson]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Events/PreSerializeEvent.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getContext]]></code>
+      <code><![CDATA[setValue]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Events/SerializationErrorEvent.php">
+    <UnusedClass>
+      <code><![CDATA[SerializationErrorEvent]]></code>
+    </UnusedClass>
+  </file>
   <file src="src/Exceptions/DeserializationException.php">
     <ClassMustBeFinal>
       <code><![CDATA[DeserializationException]]></code>
@@ -206,7 +262,18 @@
       <code><![CDATA[getActualType]]></code>
       <code><![CDATA[getExpectedType]]></code>
       <code><![CDATA[getPropertyPath]]></code>
-      <code><![CDATA[missingRequiredProperty]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Exceptions/SecurityException.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[SecurityException]]></code>
+    </ClassMustBeFinal>
+    <InvalidOperand>
+      <code><![CDATA[$currentBytes / 1024 / 1024]]></code>
+      <code><![CDATA[$maxBytes / 1024 / 1024]]></code>
+    </InvalidOperand>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[billionLaughsDetected]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Exceptions/StreamException.php">
@@ -223,6 +290,15 @@
     <ClassMustBeFinal>
       <code><![CDATA[JsonSerializer]]></code>
     </ClassMustBeFinal>
+    <DeprecatedMethod>
+      <code><![CDATA[build]]></code>
+    </DeprecatedMethod>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[LazyJsonIterator<T>]]></code>
+      <code><![CDATA[LazyJsonIterator<T>]]></code>
+      <code><![CDATA[new LazyJsonIterator($stream, $className, self::getDefaultDeserializer())]]></code>
+      <code><![CDATA[new LazyJsonIterator($stream, $className, self::getDefaultDeserializer())]]></code>
+    </MixedReturnTypeCoercion>
     <UnusedClass>
       <code><![CDATA[JsonSerializer]]></code>
     </UnusedClass>
@@ -231,9 +307,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[ClassMetadata]]></code>
     </ClassMustBeFinal>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getProperty]]></code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedProperty>
       <code><![CDATA[$className]]></code>
       <code><![CDATA[$namingStrategy]]></code>
@@ -246,11 +319,28 @@
     <TypeDoesNotContainType>
       <code><![CDATA[$typeName === 'DateTime']]></code>
     </TypeDoesNotContainType>
+    <UnnecessaryVarAnnotation>
+      <code><![CDATA[class-string<\Farzai\JsonSerializer\Contracts\TransformerInterface>]]></code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Metadata/PropertyMetadata.php">
     <ClassMustBeFinal>
       <code><![CDATA[PropertyMetadata]]></code>
     </ClassMustBeFinal>
+  </file>
+  <file src="src/Middleware/DeserializationMiddlewareChain.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[add]]></code>
+      <code><![CDATA[clear]]></code>
+      <code><![CDATA[count]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Middleware/SerializationMiddlewareChain.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[add]]></code>
+      <code><![CDATA[clear]]></code>
+      <code><![CDATA[count]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/NamingStrategy/CamelCaseStrategy.php">
     <ClassMustBeFinal>
@@ -277,9 +367,6 @@
       <code><![CDATA[NamingStrategyAttribute::PASCAL_CASE, 'PascalCase' => new PascalCaseStrategy]]></code>
       <code><![CDATA[NamingStrategyAttribute::SNAKE_CASE, 'snake_case' => new SnakeCaseStrategy]]></code>
     </ParadoxicalCondition>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[createDefault]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/NamingStrategy/PascalCaseStrategy.php">
     <ClassMustBeFinal>
@@ -291,6 +378,19 @@
       <code><![CDATA[SnakeCaseStrategy]]></code>
     </ClassMustBeFinal>
   </file>
+  <file src="src/Security/SecurityConfig.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[lenient]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedProperty>
+      <code><![CDATA[$strictTypes]]></code>
+    </PossiblyUnusedProperty>
+  </file>
+  <file src="src/Security/SecurityValidator.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[validate]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="src/Stream/FileStream.php">
     <ClassMustBeFinal>
       <code><![CDATA[FileStream]]></code>
@@ -298,23 +398,49 @@
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->handle]]></code>
     </InvalidPropertyAssignmentValue>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function close(): void]]></code>
-      <code><![CDATA[public function eof(): bool]]></code>
-      <code><![CDATA[public function flush(): bool]]></code>
-      <code><![CDATA[public function isReadable(): bool]]></code>
-      <code><![CDATA[public function isSeekable(): bool]]></code>
-      <code><![CDATA[public function isWritable(): bool]]></code>
-      <code><![CDATA[public function seek(int $offset, int $whence = SEEK_SET): bool]]></code>
-      <code><![CDATA[public function write(string $data): int]]></code>
-    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Stream/JsonPath.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[JsonPath]]></code>
+    </ClassMustBeFinal>
+    <MixedAssignment>
+      <code><![CDATA[$current]]></code>
+      <code><![CDATA[$current]]></code>
+      <code><![CDATA[$current]]></code>
+      <code><![CDATA[$current]]></code>
+      <code><![CDATA[$data]]></code>
+      <code><![CDATA[$results[$path]]]></code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Stream/JsonPullParser.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[JsonPullParser]]></code>
+    </ClassMustBeFinal>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[mb_chr($codepoint, 'UTF-8')]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Stream/LazyJsonIterator.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[LazyJsonIterator]]></code>
+    </ClassMustBeFinal>
+    <MixedAssignment>
+      <code><![CDATA[$data]]></code>
+      <code><![CDATA[$this->current]]></code>
+    </MixedAssignment>
     <PossiblyUnusedMethod>
-      <code><![CDATA[getContents]]></code>
-      <code><![CDATA[getSize]]></code>
-      <code><![CDATA[read]]></code>
-      <code><![CDATA[rewind]]></code>
-      <code><![CDATA[tell]]></code>
+      <code><![CDATA[each]]></code>
+      <code><![CDATA[filter]]></code>
+      <code><![CDATA[map]]></code>
+      <code><![CDATA[skip]]></code>
+      <code><![CDATA[take]]></code>
     </PossiblyUnusedMethod>
+    <RedundantCondition>
+      <code><![CDATA[$token->name]]></code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code><![CDATA['null']]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="src/Stream/ResourceStream.php">
     <ClassMustBeFinal>
@@ -331,14 +457,6 @@
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->resource]]></code>
     </InvalidPropertyAssignmentValue>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function close(): void]]></code>
-      <code><![CDATA[public function eof(): bool]]></code>
-      <code><![CDATA[public function isReadable(): bool]]></code>
-      <code><![CDATA[public function isSeekable(): bool]]></code>
-      <code><![CDATA[public function isWritable(): bool]]></code>
-      <code><![CDATA[public function seek(int $offset, int $whence = SEEK_SET): bool]]></code>
-    </MissingOverrideAttribute>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[is_resource($this->resource)]]></code>
     </RedundantConditionGivenDocblockType>
@@ -350,14 +468,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[StringStream]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function close(): void]]></code>
-      <code><![CDATA[public function eof(): bool]]></code>
-      <code><![CDATA[public function isReadable(): bool]]></code>
-      <code><![CDATA[public function isSeekable(): bool]]></code>
-      <code><![CDATA[public function isWritable(): bool]]></code>
-      <code><![CDATA[public function seek(int $offset, int $whence = SEEK_SET): bool]]></code>
-    </MissingOverrideAttribute>
     <UnusedClass>
       <code><![CDATA[StringStream]]></code>
     </UnusedClass>
@@ -391,9 +501,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[TransformerRegistry]]></code>
     </ClassMustBeFinal>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[has]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Types/Handlers/ArrayTypeHandler.php">
     <ClassMustBeFinal>
@@ -411,6 +518,22 @@
     <ClassMustBeFinal>
       <code><![CDATA[EnumTypeHandler]]></code>
     </ClassMustBeFinal>
+  </file>
+  <file src="src/Types/Handlers/GeneratorTypeHandler.php">
+    <MixedAssignment>
+      <code><![CDATA[$firstKey]]></code>
+      <code><![CDATA[$firstValue]]></code>
+      <code><![CDATA[$items[$firstKey]]]></code>
+      <code><![CDATA[$items[$key]]]></code>
+      <code><![CDATA[$items[$key]]]></code>
+      <code><![CDATA[$items[0]]]></code>
+      <code><![CDATA[$val]]></code>
+      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$value]]></code>
+    </MixedAssignment>
+    <PossiblyFalseOperand>
+      <code><![CDATA[$jsonKey]]></code>
+    </PossiblyFalseOperand>
   </file>
   <file src="src/Types/Handlers/ObjectTypeHandler.php">
     <ClassMustBeFinal>
@@ -474,13 +597,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[TypeDetector]]></code>
     </ClassMustBeFinal>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getObjectProperties]]></code>
-      <code><![CDATA[getObjectType]]></code>
-    </PossiblyUnusedMethod>
-    <UnusedMethodCall>
-      <code><![CDATA[setAccessible]]></code>
-    </UnusedMethodCall>
   </file>
   <file src="src/Types/TypeHandlerFactory.php">
     <ClassMustBeFinal>
