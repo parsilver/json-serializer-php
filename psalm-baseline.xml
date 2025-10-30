@@ -78,6 +78,8 @@
       <code><![CDATA[withAllowExtraProperties]]></code>
       <code><![CDATA[withCircularReferenceDetection]]></code>
       <code><![CDATA[withMaxDepth]]></code>
+      <code><![CDATA[withPrettyPrint]]></code>
+      <code><![CDATA[withStrictTypes]]></code>
       <code><![CDATA[withTypeCoercionMode]]></code>
       <code><![CDATA[withVersion]]></code>
     </PossiblyUnusedMethod>
@@ -122,6 +124,9 @@
       <code><![CDATA[getEventDispatcher]]></code>
       <code><![CDATA[getMiddlewareChain]]></code>
     </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$context]]></code>
+    </PossiblyUnusedParam>
   </file>
   <file src="src/Engine/ObjectHydrator.php">
     <ClassMustBeFinal>
