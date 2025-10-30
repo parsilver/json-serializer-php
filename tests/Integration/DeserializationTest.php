@@ -249,7 +249,7 @@ describe('Deserialization Integration Tests', function () {
             public Country $country;
         }
 
-        class Address
+        class CompanyAddress
         {
             public string $street;
 
@@ -260,7 +260,7 @@ describe('Deserialization Integration Tests', function () {
         {
             public string $name;
 
-            public Address $address;
+            public CompanyAddress $address;
         }
 
         $json = '{"name":"Acme Corp","address":{"street":"123 Main","city":{"name":"NYC","country":{"name":"USA"}}}}';
@@ -269,7 +269,7 @@ describe('Deserialization Integration Tests', function () {
 
         expect($company)->toBeInstanceOf(Company::class)
             ->and($company->name)->toBe('Acme Corp')
-            ->and($company->address)->toBeInstanceOf(Address::class)
+            ->and($company->address)->toBeInstanceOf(CompanyAddress::class)
             ->and($company->address->street)->toBe('123 Main')
             ->and($company->address->city)->toBeInstanceOf(City::class)
             ->and($company->address->city->name)->toBe('NYC')
