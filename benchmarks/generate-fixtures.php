@@ -63,7 +63,14 @@ function getApproximateSize(array $data): int
 function writeFixture(string $filename, array $data): void
 {
     $json = json_encode($data, JSON_PRETTY_PRINT);
-    $path = __DIR__.'/fixtures/'.$filename;
+    $fixturesDir = __DIR__.'/fixtures';
+
+    // Create fixtures directory if it doesn't exist
+    if (!is_dir($fixturesDir)) {
+        mkdir($fixturesDir, 0755, true);
+    }
+
+    $path = $fixturesDir.'/'.$filename;
     file_put_contents($path, $json);
 
     $size = filesize($path);
