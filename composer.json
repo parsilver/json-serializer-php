@@ -1,6 +1,6 @@
 {
     "name": "farzai/json-serializer",
-    "description": "High-performance JSON serializer for PHP with streaming support, type-safe object mapping, and memory-efficient processing",
+    "description": "High-performance JSON serializer for PHP with streaming support, type-safe object mapping, and memory-efficient processing.",
     "keywords": [
         "json",
         "serializer",
