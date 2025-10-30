@@ -1,0 +1,57 @@
+{
+    "$schema": "https://phpbench.readthedocs.io/en/latest/schema.json",
+    "runner.bootstrap": "vendor/autoload.php",
+    "runner.path": "benchmarks",
+    "runner.file_pattern": "*Bench.php",
+    "runner.progress": "dots",
+    "runner.iterations": [
+        3
+    ],
+    "runner.warmup": [
+        1
+    ],
+    "runner.revs": [
+        10
+    ],
+    "runner.retry_threshold": 10,
+    "runner.php_config": {
+        "memory_limit": "1G"
+    },
+    "report.generators": {
+        "default": {
+            "extends": "aggregate",
+            "break": [
+                "benchmark"
+            ],
+            "cols": [
+                "benchmark",
+                "subject",
+                "set",
+                "revs",
+                "its",
+                "mem_peak",
+                "best",
+                "mean",
+                "mode",
+                "worst",
+                "stdev",
+                "rstdev"
+            ]
+        },
+        "memory": {
+            "extends": "aggregate",
+            "break": [
+                "benchmark"
+            ],
+            "cols": [
+                "benchmark",
+                "subject",
+                "mem_peak",
+                "mem_real",
+                "mem_final"
+            ]
+        }
+    },
+    "storage.driver": "xml",
+    "storage.xml_storage_path": "var/phpbench"
+}

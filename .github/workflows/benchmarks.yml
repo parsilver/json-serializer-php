@@ -1,0 +1,94 @@
+name: Benchmarks
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'benchmarks/**'
+      - '.github/workflows/benchmarks.yml'
+      - 'phpbench.json'
+      - 'composer.json'
+      - 'composer.lock'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'benchmarks/**'
+      - 'phpbench.json'
+  schedule:
+    # Run weekly on Monday at 00:00 UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch: # Allow manual trigger
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    name: Performance Benchmarks
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv
+          coverage: none
+          ini-values: memory_limit=1G
+
+      - name: Install dependencies
+        run: composer update --prefer-stable --prefer-dist --no-interaction
+
+      - name: Generate benchmark fixtures
+        run: php benchmarks/generate-fixtures.php
+
+      - name: Run Small & Medium Data Benchmarks
+        run: vendor/bin/phpbench run benchmarks/SmallDataBench.php benchmarks/MediumDataBench.php --report=default --store
+
+      - name: Run Memory Benchmarks
+        run: vendor/bin/phpbench run benchmarks/MemoryBench.php --report=default --store
+
+      - name: Generate benchmark report
+        run: vendor/bin/phpbench report --report=default --output=markdown > benchmark-results.md
+
+      - name: Upload benchmark results
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results
+          path: |
+            benchmark-results.md
+            var/phpbench/**
+          retention-days: 30
+
+      - name: Comment PR with benchmark results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const results = fs.readFileSync('benchmark-results.md', 'utf8');
+
+            const body = `## 📊 Benchmark Results\n\n${results}\n\n---\n*Benchmarks ran on PHP 8.4 (ubuntu-latest)*`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+      - name: Check for performance regression
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "Performance regression detection would go here"
+          echo "Could compare with baseline stored in var/phpbench"
+          echo "Fail if performance degrades by more than 10%"
