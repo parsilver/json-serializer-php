@@ -66,7 +66,7 @@ function writeFixture(string $filename, array $data): void
     $fixturesDir = __DIR__.'/fixtures';
 
     // Create fixtures directory if it doesn't exist
-    if (!is_dir($fixturesDir)) {
+    if (! is_dir($fixturesDir)) {
         mkdir($fixturesDir, 0755, true);
     }
 
