@@ -57,7 +57,7 @@ jobs:
         run: vendor/bin/phpbench run benchmarks/MemoryBench.php --report=default --store
 
       - name: Generate benchmark report
-        run: vendor/bin/phpbench report --report=default --output=markdown > benchmark-results.md
+        run: vendor/bin/phpbench report --ref=latest --report=default --output=markdown > benchmark-results.md
 
       - name: Upload benchmark results
         uses: actions/upload-artifact@v4
