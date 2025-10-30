@@ -365,6 +365,7 @@ class JsonPullParser
      * Parse a JSON null.
      *
      * @return null
+     *
      * @throws \Farzai\JsonSerializer\Exceptions\StreamException
      */
     private function parseNull()
